@@ -19,8 +19,8 @@ spring:
         max-page-size: 99999
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://${ODC_DATABASE_HOST}:${ODC_DATABASE_PORT}/${ODC_DATABASE_NAME}?allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useCompatibleMetadata=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${ODC_DATABASE_HOST}:${ODC_DATABASE_PORT}/${ODC_DATABASE_NAME}?allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC&characterEncoding=utf8
     username: ${ODC_DATABASE_USERNAME}
     password: ${ODC_DATABASE_PASSWORD}
     druid:
@@ -32,7 +32,7 @@ spring:
       max-active: 100
       min-idle: 50
       max-wait: 10000
-      validation-query: select 1 from dual
+      validation-query: select 1
       validation-query-timeout: 10
       test-while-idle: true
       keep-alive: true

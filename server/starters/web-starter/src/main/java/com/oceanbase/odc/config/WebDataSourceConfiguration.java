@@ -40,7 +40,17 @@ public class WebDataSourceConfiguration {
     @ConfigurationProperties("spring.datasource.druid")
     public DataSource dataSource() {
         DruidDataSource dataSource = DruidDataSourceBuilder.create().build();
-        dataSource.getConnectProperties().setProperty("sessionVariables", "ob_query_timeout=30000000");
+        
+        // 根据驱动类型设置不同的session变量
+        String driverClassName = dataSource.getDriverClassName();
+        if (driverClassName != null && driverClassName.contains("mysql")) {
+            // MySQL数据库，不设置ob_query_timeout
+            dataSource.getConnectProperties().setProperty("sessionVariables", "");
+        } else {
+            // OceanBase数据库，设置ob_query_timeout
+            dataSource.getConnectProperties().setProperty("sessionVariables", "ob_query_timeout=30000000");
+        }
+        
         dataSource.setSocketTimeout((int) (sessionProperties.getBackendQueryTimeoutMicros() / 1000));
         return dataSource;
     }

@@ -12,7 +12,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     # driver-class-name: com.oceanbase.jdbc.Driver
     driver-class-name: com.mysql.cj.jdbc.Driver 
-    url: jdbc:mysql://${ODC_DATABASE_HOST}:${ODC_DATABASE_PORT}/${ODC_DATABASE_NAME}?allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useCompatibleMetadata=true
+    url: jdbc:mysql://${ODC_DATABASE_HOST}:${ODC_DATABASE_PORT}/${ODC_DATABASE_NAME}?allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC&characterEncoding=utf8
     username: ${ODC_DATABASE_USERNAME}
     password: ${ODC_DATABASE_PASSWORD}
 
