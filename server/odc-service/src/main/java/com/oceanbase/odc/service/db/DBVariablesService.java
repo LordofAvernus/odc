@@ -92,7 +92,7 @@ public class DBVariablesService {
 
         DB_VARIABLE_VALUE_UNIT.put("connect_timeout", "s");
         DB_VARIABLE_VALUE_UNIT.put("interactive_timeout", "s");
-        DB_VARIABLE_VALUE_UNIT.put("ob_query_timeout", "us");
+        // DB_VARIABLE_VALUE_UNIT.put("ob_query_timeout", "us");
         DB_VARIABLE_VALUE_UNIT.put("ob_trx_timeout", "us");
         DB_VARIABLE_VALUE_UNIT.put("net_read_timeout", "s");
         DB_VARIABLE_VALUE_UNIT.put("net_write_timeout", "s");

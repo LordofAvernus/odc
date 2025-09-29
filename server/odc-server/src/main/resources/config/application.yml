@@ -1,6 +1,9 @@
 spring:
   main:
     allow-circular-references: true
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration
   session:
     store-type: jdbc
   aop:

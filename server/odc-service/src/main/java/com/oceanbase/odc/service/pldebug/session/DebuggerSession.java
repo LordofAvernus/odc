@@ -115,9 +115,11 @@ public class DebuggerSession extends AbstractDebugSession {
         }
         // Debugger must connect to database host the same as debuggee
         // Set the timeout period, which is measured in microseconds (µs)
+        // 注释掉ob_query_timeout设置，避免MySQL驱动报错
         List<String> initSqls = Collections.singletonList(
-                String.format("set session ob_query_timeout = %s;",
-                        plDebugProperties.getObQueryTimeoutSeconds() * 1000 * 1000));
+                // String.format("set session ob_query_timeout = %s;",
+                // plDebugProperties.getObQueryTimeoutSeconds() * 1000 * 1000));
+                "select 1"); // 使用简单的查询代替ob_query_timeout设置
         acquireNewConnection(debuggeeSession.getConnectionSession(),
                 () -> cloneDataSource(debuggeeSession.getNewDataSource(), initSqls));
         try (Statement stmt = connection.createStatement()) {

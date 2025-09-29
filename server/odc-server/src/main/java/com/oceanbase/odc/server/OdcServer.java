@@ -54,7 +54,8 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @SpringBootApplication(scanBasePackages = {"com.oceanbase.odc"},
-        exclude = CompositeMeterRegistryAutoConfiguration.class)
+        exclude = {CompositeMeterRegistryAutoConfiguration.class, 
+                   org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration.class})
 @EnableWebMvc
 @Configuration
 @EnableScheduling
